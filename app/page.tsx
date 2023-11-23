@@ -5,11 +5,17 @@ import { Todo } from "@prisma/client";
 import { revalidatePath } from "next/cache";
 import React from "react";
 import { markComplete } from "./actions";
+import { redirect } from "next/navigation";
+import { getServerSession } from "next-auth";
+import { authOptions } from "./api/auth/[...nextauth]/route";
 
 const getTodoItems = async () => {
   "use server";
 
+  const session = await getServerSession(authOptions);
+
   const todoData = await prisma.todo.findMany({
+    where: { user: session?.user.id },
     orderBy: { createdAt: "desc" },
   });
 
@@ -17,6 +23,9 @@ const getTodoItems = async () => {
 };
 
 const Dashboard = async () => {
+  const session = await getServerSession(authOptions);
+
+  if (!session) redirect("/api/auth/signin");
   const data = await getTodoItems();
 
   return (
