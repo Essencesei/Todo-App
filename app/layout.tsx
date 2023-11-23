@@ -16,11 +16,11 @@ export const metadata: Metadata = {
       'The Next.js Todo Application is a user-friendly task management platform that enables users to efficiently organize their tasks. Built using Next.js along with Prisma and MongoDB Atlas, this application provides a seamless and responsive experience for managing to-do lists."',
     images: [
       {
-        url: "/Todo App.png",
+        url: "/todoapp.png",
         width: 800,
         height: 600,
         alt: "Todo App",
-        type: "image/png",
+        type: "image/jpeg",
       },
     ],
   },
