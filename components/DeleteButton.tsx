@@ -1,6 +1,6 @@
 "use client";
 import { deleteItem } from "@/app/actions";
-import React, { useState } from "react";
+import React, { useState, useTransition } from "react";
 import { useFormState, useFormStatus } from "react-dom";
 import { MdOutlineDeleteOutline } from "react-icons/md";
 
@@ -9,18 +9,22 @@ type DeleteButtonProps = {
 };
 
 const DeleteButton = ({ id }: DeleteButtonProps) => {
+  const { pending } = useFormStatus();
+  const [isPending, startTransition] = useTransition();
   return (
-    <>
-      <form
-        action={async (formData) => {
+    <button
+      onClick={() => {
+        startTransition(async () => {
           await deleteItem(id);
-        }}
-      >
-        <button>
-          <MdOutlineDeleteOutline className="cursor-pointer btn-circle btn-xs btn-ghost" />
-        </button>
-      </form>
-    </>
+        });
+      }}
+    >
+      {isPending ? (
+        <span className="loading loading-spinner"></span>
+      ) : (
+        <MdOutlineDeleteOutline className="cursor-pointer btn-circle btn-xs btn-ghost" />
+      )}
+    </button>
   );
 };
 

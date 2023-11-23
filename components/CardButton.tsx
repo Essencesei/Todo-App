@@ -1,6 +1,13 @@
 "use client";
-import React, { ComponentProps, startTransition, useTransition } from "react";
+import React, {
+  ComponentProps,
+  startTransition,
+  useState,
+  useTransition,
+} from "react";
 import { markComplete } from "@/app/actions";
+import { useFormStatus } from "react-dom";
+import { start } from "repl";
 
 type CardButtonProps = {
   children: React.ReactNode;
@@ -9,14 +16,21 @@ type CardButtonProps = {
 } & ComponentProps<"button">;
 
 const CardButton = ({ children, id, classNames }: CardButtonProps) => {
+  const { pending } = useFormStatus();
+  const [isPending, startTransition] = useTransition();
   return (
-    <form
-      action={async (formData) => {
-        await markComplete(id);
+    <button
+      disabled={isPending}
+      onClick={() => {
+        startTransition(async () => {
+          await markComplete(id);
+        });
       }}
+      className={`btn w-full ${classNames}`}
     >
-      <button className={`btn w-full ${classNames}`}>{children}</button>
-    </form>
+      {isPending && <span className="loading loading-spinner"></span>}
+      {children}
+    </button>
   );
 };
 
