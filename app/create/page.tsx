@@ -31,11 +31,13 @@ const CreateTodo = () => {
           type="text"
           name="title"
           placeholder="Title"
+          required
         />
         <textarea
           className="textarea textarea-primary"
           name="description"
           placeholder="Description"
+          required
         />
         <FormSubmitBtn>Create Task</FormSubmitBtn>
       </form>

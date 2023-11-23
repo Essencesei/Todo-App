@@ -1,5 +1,5 @@
 export const timeFormat = (time: Date) => {
-  return new Intl.DateTimeFormat("en-us", {
+  return new Intl.DateTimeFormat("en-ph", {
     day: "2-digit",
     month: "numeric",
     year: "numeric",
