@@ -1,6 +1,6 @@
 export const timeFormat = (time: Date) => {
   return new Intl.DateTimeFormat("en-PH", {
-    timeZone: 'Asia/Manila'
+    timeZone: "Asia/Manila",
     day: "2-digit",
     month: "numeric",
     year: "numeric",
