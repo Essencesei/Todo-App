@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
-import { IoIosAddCircleOutline } from "react-icons/io";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -13,7 +12,7 @@ export const metadata: Metadata = {
     url: "https://todo-app-essencesei.vercel.app/",
     title: "Todo-App",
     description:
-      'The Next.js Todo Application is a user-friendly task management platform that enables users to efficiently organize their tasks. Built using Next.js along with Prisma and MongoDB Atlas, this application provides a seamless and responsive experience for managing to-do lists."',
+      "The Next.js Todo Application is a user-friendly task management platform that enables users to efficiently organize their tasks. Built using Next.js along with Prisma and MongoDB Atlas, this application provides a seamless and responsive experience for managing to-do lists.",
     images: [
       {
         url: "/todoapp.png",
