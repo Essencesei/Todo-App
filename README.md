@@ -16,10 +16,8 @@ The Next.js Todo Application is a user-friendly task management platform that en
 - **Next.js:** Provides the foundation for building a robust and performant web application.
 - **Prisma:** Enables seamless database operations and management.
 - **MongoDB Atlas:** Offers a cloud-based MongoDB solution for storing and accessing task data securely.
+- **Next-auth.js:** Utilize Next-auth authentication with google O-auth.
 
- ## To Add
-
-- **User Account:** User Account for data privacy
 
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
