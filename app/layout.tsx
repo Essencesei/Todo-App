@@ -7,7 +7,6 @@ const inter = Inter({ subsets: ["latin"] });
 import SessionProvider from "./SessionProvider";
 import UserMenuButton from "@/components/UserMenuButton";
 import { getServerSession } from "next-auth";
-import { authOptions } from "./api/auth/[...nextauth]/route";
 
 export const metadata: Metadata = {
   title: "Todo",
@@ -16,6 +15,7 @@ export const metadata: Metadata = {
 };
 
 import { Toaster } from "@/components/ui/toaster";
+import { authOptions } from "@/lib/auth";
 export default async function RootLayout({
   children,
 }: {

@@ -11,11 +11,12 @@ import FormSubmitBtn from "./FormSubmitBtn";
 import { redirect } from "next/navigation";
 import prisma from "@/libs/db/db";
 import { getServerSession } from "next-auth";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+
 import { Card, CardContent, CardFooter, CardHeader } from "./ui/card";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { Button } from "./ui/button";
+import { authOptions } from "@/lib/auth";
 
 const createTodo = async (formData: FormData) => {
   "use server";
