@@ -7,8 +7,8 @@ import { getServerSession } from "next-auth";
 
 import AddItem from "@/components/AddItem";
 import { authOptions } from "@/lib/auth";
-import CardWrapper from "@/components/Card/CardWrapper";
-import CardButton from "@/components/Card/CardButton";
+import CardWrapper from "@/components/card/CardWrapper";
+import CardButton from "@/components/card/CardButton";
 
 const getTodoItems = async () => {
   "use server";
