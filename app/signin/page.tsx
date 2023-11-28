@@ -34,7 +34,7 @@ const SigninPage = () => {
           {loading ? (
             <span className="flex gap-4 items-center w-[170px]">
               <Loader2 className="animate-spin" />
-              Hang in there
+              <span> Hang in there</span>
             </span>
           ) : (
             <span className="flex gap-4 items-center w-[170px]">
