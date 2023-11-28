@@ -1,15 +1,14 @@
-import prisma from "@/libs/db/db";
-import { Todo } from "@prisma/client";
-import { revalidatePath } from "next/cache";
 import React from "react";
-import { markComplete } from "./actions";
+import prisma from "@/libs/db/db";
+
+import { Todo } from "@prisma/client";
 import { redirect } from "next/navigation";
 import { getServerSession } from "next-auth";
 import { authOptions } from "./api/auth/[...nextauth]/route";
-import CardWrapper from "@/components/Card/CardWrapper";
-import CardButton from "@/components/Card/CardButton";
+
+import CardWrapper from "@/components/card/CardWrapper";
+import CardButton from "@/components/card/CardButton";
 import AddItem from "@/components/AddItem";
-import { Skeleton } from "@/components/ui/skeleton";
 
 const getTodoItems = async () => {
   "use server";
@@ -31,7 +30,7 @@ const Dashboard = async () => {
   const data = await getTodoItems();
 
   return (
-    <div className="grid  gap-8 p-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
+    <div className="grid  gap-8 p-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-2 pt-20">
       <AddItem></AddItem>
       {data?.map((item: Todo) => {
         return (

@@ -26,12 +26,14 @@ export default async function RootLayout({
     <html data-theme="light" lang="en">
       <body className={inter.className}>
         <SessionProvider>
-          <nav className="flex justify-between items-center p-2">
-            <Link href={"/"} className="btn btn-ghost">
-              <h1 className="text-2xl font-bold">TODO</h1>
-            </Link>
+          <nav className=" p-2 fixed w-full backdrop-blur-lg shadow">
+            <div className="  flex justify-between items-center">
+              <Link href={"/"} className="btn btn-ghost">
+                <h1 className="text-2xl font-bold">TODO</h1>
+              </Link>
 
-            <UserMenuButton session={session} />
+              {session && <UserMenuButton session={session} />}
+            </div>
           </nav>
           <main className="select-none md:mx-52">{children}</main>
           <Toaster />

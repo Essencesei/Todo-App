@@ -1,7 +1,7 @@
 "use client";
 import { deleteItem } from "@/app/actions";
-import React, { useState, useTransition } from "react";
-import { useFormState, useFormStatus } from "react-dom";
+import React, { useTransition } from "react";
+import { useFormStatus } from "react-dom";
 import { MdOutlineDeleteOutline } from "react-icons/md";
 import { Button } from "../ui/button";
 import { Loader2 } from "lucide-react";
@@ -12,7 +12,6 @@ type DeleteButtonProps = {
 };
 
 const DeleteButton = ({ id }: DeleteButtonProps) => {
-  const { pending } = useFormStatus();
   const [isPending, startTransition] = useTransition();
   return (
     <Button

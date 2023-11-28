@@ -2,7 +2,7 @@ import React from "react";
 import DeleteButton from "./DeleteButton";
 import { timeFormat } from "@/libs/timeFormat";
 import { Todo } from "@prisma/client";
-import { markComplete } from "@/app/actions";
+
 import {
   Card,
   CardContent,

@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import og from "../app/opengraph-image.png";
 import { signIn, signOut } from "next-auth/react";
-import Link from "next/link";
+
 import {
   DropdownMenu,
   DropdownMenuContent,
