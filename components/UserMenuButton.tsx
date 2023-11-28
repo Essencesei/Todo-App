@@ -5,6 +5,23 @@ import Image from "next/image";
 import og from "../app/opengraph-image.png";
 import { signIn, signOut } from "next-auth/react";
 import Link from "next/link";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+} from "./ui/dropdown-menu";
+import { DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "./ui/dialog";
 
 type UserMenuButtonProps = {
   session: Session | null;
@@ -13,8 +30,8 @@ type UserMenuButtonProps = {
 const UserMenuButton = ({ session }: UserMenuButtonProps) => {
   const user = session?.user;
   return (
-    <div className="dropdown dropdown-end">
-      <label tabIndex={0} className="btn btn-circle btn-ghost">
+    <DropdownMenu>
+      <DropdownMenuTrigger>
         {user ? (
           <Image
             src={user.image || og}
@@ -38,20 +55,26 @@ const UserMenuButton = ({ session }: UserMenuButtonProps) => {
             />
           </svg>
         )}
-      </label>
-      <ul tabIndex={0} className="dropdown-content menu bg-base-200">
-        <li>{user && <Link href={"/create"}>Create</Link>}</li>
-        <li>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent>
+        <DropdownMenuLabel>Signed in as {session?.user.name}</DropdownMenuLabel>
+        <DropdownMenuSeparator />
+        <DropdownMenuItem>
           {user ? (
-            <button onClick={() => signOut({ callbackUrl: "/" })}>
+            <button
+              className="w-full text-start"
+              onClick={() => signOut({ callbackUrl: "/" })}
+            >
               Logout
             </button>
           ) : (
-            <button onClick={() => signIn()}>Login</button>
+            <button className="w-full text-start" onClick={() => signIn()}>
+              Login
+            </button>
           )}
-        </li>
-      </ul>
-    </div>
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 };
 

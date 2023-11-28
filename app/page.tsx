@@ -1,5 +1,3 @@
-import Card from "@/components/Card";
-import CardButton from "@/components/CardButton";
 import prisma from "@/libs/db/db";
 import { Todo } from "@prisma/client";
 import { revalidatePath } from "next/cache";
@@ -8,6 +6,10 @@ import { markComplete } from "./actions";
 import { redirect } from "next/navigation";
 import { getServerSession } from "next-auth";
 import { authOptions } from "./api/auth/[...nextauth]/route";
+import CardWrapper from "@/components/Card/CardWrapper";
+import CardButton from "@/components/Card/CardButton";
+import AddItem from "@/components/AddItem";
+import { Skeleton } from "@/components/ui/skeleton";
 
 const getTodoItems = async () => {
   "use server";
@@ -29,10 +31,11 @@ const Dashboard = async () => {
   const data = await getTodoItems();
 
   return (
-    <div className="grid  gap-2 p-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+    <div className="grid  gap-8 p-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
+      <AddItem></AddItem>
       {data?.map((item: Todo) => {
         return (
-          <Card key={item.id} props={item}>
+          <CardWrapper key={item.id} props={item}>
             <CardButton
               classNames={
                 item.status === "OPEN" ? "btn-primary" : "btn-success"
@@ -41,10 +44,9 @@ const Dashboard = async () => {
             >
               {item.status === "OPEN" ? "Mark Done" : "Done"}
             </CardButton>
-          </Card>
+          </CardWrapper>
         );
       })}
-      {data.length === 0 && "List is Empty"}
     </div>
   );
 };

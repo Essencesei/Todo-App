@@ -8,6 +8,8 @@ import React, {
 import { markComplete } from "@/app/actions";
 import { useFormStatus } from "react-dom";
 import { start } from "repl";
+import { Button } from "../ui/button";
+import { Loader2 } from "lucide-react";
 
 type CardButtonProps = {
   children: React.ReactNode;
@@ -19,7 +21,8 @@ const CardButton = ({ children, id, classNames }: CardButtonProps) => {
   const { pending } = useFormStatus();
   const [isPending, startTransition] = useTransition();
   return (
-    <button
+    <Button
+      variant={"default"}
       disabled={isPending}
       onClick={() => {
         startTransition(async () => {
@@ -28,9 +31,9 @@ const CardButton = ({ children, id, classNames }: CardButtonProps) => {
       }}
       className={`btn w-full ${classNames}`}
     >
-      {isPending && <span className="loading loading-spinner"></span>}
+      {isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
       {children}
-    </button>
+    </Button>
   );
 };
 

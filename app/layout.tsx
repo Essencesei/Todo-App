@@ -32,7 +32,7 @@ export default async function RootLayout({
 
             <UserMenuButton session={session} />
           </nav>
-          <main className="select-none">{children}</main>
+          <main className="select-none md:mx-52">{children}</main>
         </SessionProvider>
       </body>
     </html>
