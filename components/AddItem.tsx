@@ -9,7 +9,7 @@ import {
 } from "./ui/dialog";
 import FormSubmitBtn from "./FormSubmitBtn";
 import { redirect } from "next/navigation";
-import prisma from "@/libs/db/db";
+import prisma from "@/lib/db/db";
 import { getServerSession } from "next-auth";
 
 import { Card, CardContent, CardFooter, CardHeader } from "./ui/card";

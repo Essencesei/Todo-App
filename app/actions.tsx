@@ -1,5 +1,5 @@
 "use server";
-import prisma from "@/libs/db/db";
+import prisma from "@/lib/db/db";
 import { revalidatePath } from "next/cache";
 
 export const markComplete = async (id: string) => {

@@ -1,6 +1,6 @@
 import React from "react";
 
-import { timeFormat } from "@/libs/timeFormat";
+import { timeFormat } from "@/lib/timeFormat";
 import { Todo } from "@prisma/client";
 
 import {
