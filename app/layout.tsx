@@ -16,6 +16,7 @@ export const metadata: Metadata = {
 
 import { Toaster } from "@/components/ui/toaster";
 import { authOptions } from "@/lib/auth";
+import { Button } from "@/components/ui/button";
 export default async function RootLayout({
   children,
 }: {
@@ -26,10 +27,10 @@ export default async function RootLayout({
     <html data-theme="light" lang="en">
       <body className={inter.className}>
         <SessionProvider>
-          <nav className=" p-2 fixed w-full backdrop-blur-lg shadow">
+          <nav className=" p-2 px-8 fixed w-full backdrop-blur-lg shadow">
             <div className="  flex justify-between items-center">
               <Link href={"/"} className="btn btn-ghost">
-                <h1 className="text-2xl font-bold">TODO</h1>
+                <h1 className="text-2xl font-bold">Todo</h1>
               </Link>
 
               {session && <UserMenuButton session={session} />}

@@ -28,11 +28,7 @@ const DeleteButton = ({ id }: DeleteButtonProps) => {
         });
       }}
     >
-      {isPending ? (
-        <Loader2 className="animate-spin "></Loader2>
-      ) : (
-        <MdOutlineDeleteOutline className="cursor-pointer btn-circle btn-xs btn-ghost" />
-      )}
+      {isPending ? <Loader2 className="animate-spin "></Loader2> : "Delete"}
     </Button>
   );
 };

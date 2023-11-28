@@ -26,7 +26,9 @@ const CardWrapper = ({
       <CardHeader>
         <CardTitle className="flex items-center justify-between gap-4">
           <p className="line-clamp-1 w-1/2">{props.title}</p>
-          <Badge className="w-fit">{props.status}</Badge>
+          <Badge variant={"outline"} className="w-fit">
+            {props.status}
+          </Badge>
         </CardTitle>
         <CardDescription className="flex flex-col">
           <span> Created: {timeFormat(props.createdAt)}</span>
