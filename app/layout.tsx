@@ -15,6 +15,7 @@ export const metadata: Metadata = {
     "The Next.js Todo Application is a user-friendly task management platform that enables users to efficiently organize their tasks. Built using Next.js along with Prisma and MongoDB Atlas, this application provides a seamless and responsive experience for managing to-do lists.",
 };
 
+import { Toaster } from "@/components/ui/toaster";
 export default async function RootLayout({
   children,
 }: {
@@ -33,6 +34,7 @@ export default async function RootLayout({
             <UserMenuButton session={session} />
           </nav>
           <main className="select-none md:mx-52">{children}</main>
+          <Toaster />
         </SessionProvider>
       </body>
     </html>

@@ -10,6 +10,7 @@ import { useFormStatus } from "react-dom";
 import { start } from "repl";
 import { Button } from "../ui/button";
 import { Loader2 } from "lucide-react";
+import { toast } from "../ui/use-toast";
 
 type CardButtonProps = {
   children: React.ReactNode;
@@ -27,6 +28,9 @@ const CardButton = ({ children, id, classNames }: CardButtonProps) => {
       onClick={() => {
         startTransition(async () => {
           await markComplete(id);
+          toast({
+            description: "Task Marked Done!",
+          });
         });
       }}
       className={`btn w-full ${classNames}`}

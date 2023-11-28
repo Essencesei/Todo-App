@@ -5,6 +5,7 @@ import { useFormState, useFormStatus } from "react-dom";
 import { MdOutlineDeleteOutline } from "react-icons/md";
 import { Button } from "../ui/button";
 import { Loader2 } from "lucide-react";
+import { toast } from "../ui/use-toast";
 
 type DeleteButtonProps = {
   id: string;
@@ -21,6 +22,10 @@ const DeleteButton = ({ id }: DeleteButtonProps) => {
       onClick={() => {
         startTransition(async () => {
           await deleteItem(id);
+          toast({
+            variant: "destructive",
+            description: "Deletion Complete!",
+          });
         });
       }}
     >
